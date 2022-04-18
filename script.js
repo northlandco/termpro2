@@ -124,21 +124,7 @@ $.getJSON("src/generalhospitals.geojson", function (data){
 // Ways to load geoJSON polygon layers from local directory or remote server
 // Different options for styling and interactivity
 
-$.getJSON("src/lines.geojson", function (data){
-  var geoJsonLayer = L.geoJson(data, {
-    style: function (feature) {
-      return {
-        'color': 'green',
-        'weight': 4,
-      }
-    },
-    onEachFeature: function( feature, layer) {
-      layer.bindPopup(feature.properties.name) // change to match your geojson property labels
-    }
-  });  // insert ".addTo(map)" to display layer by default
-  controlLayers.addOverlay(geoJsonLayer, 'Lines');  // insert your 'Title' to add to legend
-});
-
+//National Parks
 $.getJSON("src/NationalParks.geojson", function (data){
   var geoJsonLayer = L.geoJson(data, {
     style: function (feature) {
@@ -154,8 +140,7 @@ $.getJSON("src/NationalParks.geojson", function (data){
   controlLayers.addOverlay(geoJsonLayer, 'National Parks');
 });
 
-
-// load polygon data with clickable features from local directory
+//CMA Boundaries
 $.getJSON("src/CMABoundary.geojson", function (data) {   // insert pathname to your local directory file
   var geoJsonLayer = L.geoJson(data, {
     style: function (feature) {
@@ -172,6 +157,7 @@ $.getJSON("src/CMABoundary.geojson", function (data) {   // insert pathname to y
   });  // insert ".addTo(map)" to display layer by default
   controlLayers.addOverlay(geoJsonLayer, 'CMA Boundary'); 
 });
+
 
 // load polygon geojson, using data to define fillColor, from local directory
 // *TO DO* rebuild file for pop density

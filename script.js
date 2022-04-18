@@ -8,7 +8,7 @@ var map = L.map('map', {
   scrollWheelZoom: true
 });
 
-// optional : customize link to view source code; add your own GitHub repository
+// link to view source code
 map.attributionControl
 .setPrefix('View <a href="http://github.com/jackdougherty/leaflet-map">code on GitHub</a>, created with <a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>');
 
@@ -16,20 +16,20 @@ L.Control.geocoder({position: "topleft"}).addTo(map);
 
 L.control.scale().addTo(map);
 
-// optional Zoom Label for map construction
+// Zoom Label
 L.control.zoomLabel({position: "topright"}).addTo(map);
 
-// Reposition zoom control other than default topleft
+// Reposition zoom control
 L.control.zoom({position: "topright"}).addTo(map);
 
-// optional: add legend to toggle any baselayers and/or overlays
+//add legend to toggle any baselayers and/or overlays
 // global variable with (null, null) allows indiv layers to be added inside functions below
 var controlLayers = L.control.layers( null, null, {
   position: "bottomright", // suggested: bottomright for CT (in Long Island Sound); topleft for Hartford region
   collapsed: false // false = open by default
 }).addTo(map);
 
-// optional Coordinate Control for map construction
+//Coordinate Control for map construction
 var c = new L.Control.Coordinates();
 c.addTo(map);
 map.on('click', function(e) {
@@ -59,41 +59,12 @@ controlLayers.addBaseLayer(Esri_WorldImagery, 'Esri World Imagery');
 /* POINT OVERLAYS */
 // ways to load point map data from different sources: coordinates in the code, GeoJSON in local directory, remote GeoJSON and JSON
 
-// load one point from coordinates in code, icon from local directory, no interactive legend button
-// places a star on state capital of Hartford, CT
-// * TO DO: test whether placement of this code affects its display order, on top of other icons?
-var starIcon = L.icon({
-  iconUrl: 'src/star-18.png',
-  iconRetinaUrl: 'src/star-18@2x.png',
-  iconSize: [18, 18]
-});
-L.marker([41.7646, -72.6823], {icon: starIcon}).addTo(map);
-
 // load point geojson data from local directory, using jQuery function (symbolized by $)
 // modify icon source and styling
 // modify pointToLayer marker bindPopup function to display GeoJSON data in info window
 // option to insert '.addTo(map)' to display layer by default
 // insert controlLayers.addOverlay(geoJsonLayer, 'InsertYourTitle') to add to legend
 
-
-// load GeoJSON point data and clickable circles from local directory
-$.getJSON("src/points.geojson", function (data){
-  var geoJsonLayer = L.geoJson(data, {
-    pointToLayer: function( feature, latlng) {
-      var circle = L.circleMarker(latlng, {
-        radius: 8,
-        fillColor: "#ccccff",
-        color: "#0000cc",
-        weight: 2,
-        opacity: 1,
-        fillOpacity: 0.7
-      });
-      circle.bindPopup(feature.properties.Location); // replace 'Location' with properties data label from your GeoJSON file
-      return circle;
-    }
-  }); // insert ".addTo(map)" to display layer by default
-  controlLayers.addOverlay(geoJsonLayer, 'Circles');
-});
 
 // load GeoJSON point data and clickable icons from local directory, using jQuery function (symbolized by $)
 $.getJSON("src/Airports464.geojson", function (data){

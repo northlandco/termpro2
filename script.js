@@ -96,7 +96,7 @@ $.getJSON("src/points.geojson", function (data){
 });
 
 // load GeoJSON point data and clickable icons from local directory, using jQuery function (symbolized by $)
-$.getJSON("src/points.geojson", function (data){
+$.getJSON("src/Airports464.geojson", function (data){
   var iconStyle = L.icon({
     iconUrl: "src/hospital-18.png",
     iconRetinaUrl: 'src/hospital-18@2x.png',
@@ -105,11 +105,11 @@ $.getJSON("src/points.geojson", function (data){
   var geoJsonLayer = L.geoJson(data, {
     pointToLayer: function( feature, latlng) {
       var marker = L.marker(latlng,{icon: iconStyle});
-      marker.bindPopup(feature.properties.Location); // replace 'Location' with properties data label from your GeoJSON file
+      marker.bindPopup(feature.properties.coordinates); // replace 'Location' with properties data label from your GeoJSON file
       return marker;
     }
   }); // insert ".addTo(map)" to display layer by default
-  controlLayers.addOverlay(geoJsonLayer, 'Hospitals');
+  controlLayers.addOverlay(geoJsonLayer, 'Airports');
 });
 
 

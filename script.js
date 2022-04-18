@@ -1,5 +1,4 @@
-// Template by http://github.com/jackdougherty/leaflet-map/
-// See Leaflet tutorial links in README.md
+
 
 // set up the map center and zoom level
 var map = L.map('map', {

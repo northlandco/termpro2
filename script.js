@@ -58,15 +58,13 @@ controlLayers.addBaseLayer(Esri_WorldImagery, 'Esri World Imagery');
 
 /* POINT OVERLAYS */
 // ways to load point map data from different sources: coordinates in the code, GeoJSON in local directory, remote GeoJSON and JSON
-
 // load point geojson data from local directory, using jQuery function (symbolized by $)
 // modify icon source and styling
 // modify pointToLayer marker bindPopup function to display GeoJSON data in info window
 // option to insert '.addTo(map)' to display layer by default
 // insert controlLayers.addOverlay(geoJsonLayer, 'InsertYourTitle') to add to legend
 
-
-// load GeoJSON point data and clickable icons from local directory, using jQuery function (symbolized by $)
+// All Airports
 $.getJSON("src/Airports464.geojson", function (data){
   var iconStyle = L.icon({
     iconUrl: "src/airportlogo.png",
@@ -82,6 +80,43 @@ $.getJSON("src/Airports464.geojson", function (data){
   }); // insert ".addTo(map)" to display layer by default
   controlLayers.addOverlay(geoJsonLayer, 'Airports');
 });
+
+// International Airports (Python Computed)
+$.getJSON("src/internationalairports.geojson", function (data){
+  var iconStyle = L.icon({
+    iconUrl: "src/internationalairportlogo.png",
+    iconRetinaUrl: 'src/internationalairportlogo.png',
+    iconSize: [18, 18]
+  });
+  var geoJsonLayer = L.geoJson(data, {
+    pointToLayer: function( feature, latlng) {
+      var marker = L.marker(latlng,{icon: iconStyle});
+      marker.bindPopup(feature.properties.coordinates); // replace 'Location' with properties data label from your GeoJSON file
+      return marker;
+    }
+  }); // insert ".addTo(map)" to display layer by default
+  controlLayers.addOverlay(geoJsonLayer, 'Intl. Airports');
+});
+
+// General Hospitals (Python Computed)
+$.getJSON("src/generalhospitals.geojson", function (data){
+  var iconStyle = L.icon({
+    iconUrl: "src/hospital-18.png",
+    iconRetinaUrl: 'src/hospital-18@2x.png',
+    iconSize: [18, 18]
+  });
+  var geoJsonLayer = L.geoJson(data, {
+    pointToLayer: function( feature, latlng) {
+      var marker = L.marker(latlng,{icon: iconStyle});
+      marker.bindPopup(feature.properties.facility_name); // replace 'Location' with properties data label from your GeoJSON file
+      return marker;
+    }
+  }); // insert ".addTo(map)" to display layer by default
+  controlLayers.addOverlay(geoJsonLayer, 'General Hospitals');
+});
+
+
+
 
 
 

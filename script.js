@@ -54,31 +54,7 @@ var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest
 });
 controlLayers.addBaseLayer(Esri_WorldImagery, 'Esri World Imagery');
 
-// tileLayer.WMS as a baselayer - see http://leafletjs.com/reference.html#tilelayer-wms
-// UConn MAGIC WMS settings (currently http, not https) - see http://geoserver.lib.uconn.edu:8080/geoserver/web/?wicket:bookmarkablePage=:org.geoserver.web.demo.MapPreviewPage
-var aerial1934 = new L.tileLayer.wms("http://geoserver.lib.uconn.edu:8080/geoserver/MAGIC/wms?", {
-  layers: 'MAGIC:1934 Connecticut Aerial Photography',
-  attribution: '1934 <a href="http://magic.library.uconn.edu">MAGIC UConn</a> and <a href="http://cslib.org">CSL</a>'
-});
-controlLayers.addBaseLayer(aerial1934, 'CT Aerial 1934');
 
-// tileLayer.WMS as a baselayer - see http://leafletjs.com/reference.html#tilelayer-wms
-// UConn MAGIC WMS settings (currently http, not https) - see http://geoserver.lib.uconn.edu:8080/geoserver/web/?wicket:bookmarkablePage=:org.geoserver.web.demo.MapPreviewPage
-var hartfordCounty1855 = new L.tileLayer.wms("http://geoserver.lib.uconn.edu:8080/geoserver/MAGIC/wms?", {
-  layers: 'MAGIC:HartfordCounty_Woodford_1855',
-  attribution: '1855 <a href="http://magic.library.uconn.edu">MAGIC UConn</a>'
-});
-controlLayers.addBaseLayer(hartfordCounty1855, 'Hartford County 1855');
-
-var map1842wms = new L.tileLayer.wms("http://maps.nypl.org/warper/maps/wms/7363?", {
-  attribution: '1842 <a href="http://maps.nypl.org/warper/">NYPL Map Warper</a>'
-});
-controlLayers.addBaseLayer(map1842wms, '1842 NYPL WMS');
-
-var map1842tile = new L.tileLayer("http://mapwarper.net/maps/tile/14781/{z}/{x}/{y}.png", {
-  attribution: '1842 <a href="http://maps.nypl.org/warper/">NYPL Map Warper</a>'
-});
-controlLayers.addBaseLayer(map1842tile, '1842 NYPL Tile');
 
 /* POINT OVERLAYS */
 // ways to load point map data from different sources: coordinates in the code, GeoJSON in local directory, remote GeoJSON and JSON

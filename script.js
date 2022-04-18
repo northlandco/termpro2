@@ -166,7 +166,7 @@ $.getJSON("src/bus-routes.geojson", function (data){
 });
 
 // load polygon data with clickable features from local directory
-$.getJSON("src/polygons.geojson", function (data) {   // insert pathname to your local directory file
+$.getJSON("src/CMABoundary.geojson", function (data) {   // insert pathname to your local directory file
   var geoJsonLayer = L.geoJson(data, {
     style: function (feature) {
       return {
@@ -180,7 +180,7 @@ $.getJSON("src/polygons.geojson", function (data) {   // insert pathname to your
       layer.bindPopup(feature.properties.Town) // change 'Town' to match your geojson property labels
     }
   });  // insert ".addTo(map)" to display layer by default
-  controlLayers.addOverlay(geoJsonLayer, 'Polygons (CT towns)');  // insert your 'Title' to add to legend
+  controlLayers.addOverlay(geoJsonLayer, 'CMA Boundary'); 
 });
 
 // load polygon geojson, using data to define fillColor, from local directory

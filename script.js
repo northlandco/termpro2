@@ -69,7 +69,7 @@ controlLayers.addBaseLayer(Esri_WorldImagery, 'Esri World Imagery');
 // load GeoJSON point data and clickable icons from local directory, using jQuery function (symbolized by $)
 $.getJSON("src/Airports464.geojson", function (data){
   var iconStyle = L.icon({
-    iconUrl: "src/hospital-18.png",
+    iconUrl: "src/airportlogo.png",
     iconRetinaUrl: 'src/hospital-18@2x.png',
     iconSize: [18, 18]
   });

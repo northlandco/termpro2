@@ -104,7 +104,7 @@ $.getJSON("src/lines.geojson", function (data){
   controlLayers.addOverlay(geoJsonLayer, 'Lines');  // insert your 'Title' to add to legend
 });
 
-$.getJSON("src/parks.geojson", function (data){
+$.getJSON("src/NationalParks.geojson", function (data){
   var geoJsonLayer = L.geoJson(data, {
     style: function (feature) {
       return {
@@ -113,10 +113,10 @@ $.getJSON("src/parks.geojson", function (data){
       }
     },
     onEachFeature: function( feature, layer) {
-      layer.bindPopup(feature.properties.PARK_NAME) // change to match your geojson property labels
+      layer.bindPopup(feature.properties.NAME_E) // change to match your geojson property labels
     }
-  });  // insert ".addTo(map)" to display layer by default
-  controlLayers.addOverlay(geoJsonLayer, 'Parks');  // insert your 'Title' to add to legend
+  });  
+  controlLayers.addOverlay(geoJsonLayer, 'National Parks');
 });
 
 

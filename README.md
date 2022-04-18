@@ -1,5 +1,5 @@
-# leaflet-map
-Leaflet map template to load local and remote files (GeoJSON, tileLayer, tileLayer.WMS) directly into legend toggle (L.control.layers) with simple jQuery calls.
+# Open-Data Data Layer Map
+Leaflet Map template to add various geodata layers to. Refer to Python data manipulation, and other documentation for easy data transformation, spatial joins, and more byb following the steps used to add the current data to the map. 
 
 <p align="center">
   <img src="./leaflet-map.png" alt="Leaflet map demo" />

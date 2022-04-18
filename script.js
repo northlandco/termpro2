@@ -152,7 +152,7 @@ $.getJSON("src/CMABoundary.geojson", function (data) {   // insert pathname to y
       }
     },
     onEachFeature: function( feature, layer) {
-      layer.bindPopup(feature.properties.Town) // change 'Town' to match your geojson property labels
+      layer.bindPopup(feature.properties.CMA_NAME) // change 'Town' to match your geojson property labels
     }
   });  // insert ".addTo(map)" to display layer by default
   controlLayers.addOverlay(geoJsonLayer, 'CMA Boundary'); 

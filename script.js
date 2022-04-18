@@ -5,7 +5,7 @@ var map = L.map('map', {
   center: [42, -92],
   zoom: 4, 
   zoomControl: false, 
-  scrollWheelZoom: false
+  scrollWheelZoom: true
 });
 
 // optional : customize link to view source code; add your own GitHub repository

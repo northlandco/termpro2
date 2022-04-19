@@ -166,6 +166,23 @@ $.getJSON("src/NHLarenas.geojson", function (data){
   controlLayers.addOverlay(geoJsonLayer, 'First Nations');
 });
 
+// NFL Stadiums (Python Computed --> CSV to GeoJson)
+$.getJSON("src/nflstadiums.geojson", function (data){
+  var iconStyle = L.icon({
+    iconUrl: "src/nflstadiumslogo.png",
+    iconRetinaUrl: 'src/nflstadiumslogo.png',
+    iconSize: [12, 12]
+  });
+  var geoJsonLayer = L.geoJson(data, {
+    pointToLayer: function( feature, latlng) {
+      var marker = L.marker(latlng,{icon: iconStyle});
+      marker.bindPopup(feature.properties.Team); 
+      return marker;
+    }
+  }); // insert ".addTo(map)" to display layer by default
+  controlLayers.addOverlay(geoJsonLayer, 'NFL Stadiums');
+});
+
 
 
 

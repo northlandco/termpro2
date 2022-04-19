@@ -120,7 +120,7 @@ $.getJSON("src/privateschools.geojson", function (data){
   var iconStyle = L.icon({
     iconUrl: "src/publicschoollogo.png",
     iconRetinaUrl: 'src/publicschoollogo.png',
-    iconSize: [5, 5]
+    iconSize: [12, 12]
   });
   var geoJsonLayer = L.geoJson(data, {
     pointToLayer: function( feature, latlng) {
@@ -137,7 +137,7 @@ $.getJSON("src/NHLarenas.geojson", function (data){
   var iconStyle = L.icon({
     iconUrl: "src/nhlarenalogo.png",
     iconRetinaUrl: 'src/nhlarenalogo.png',
-    iconSize: [5, 5]
+    iconSize: [15, 15]
   });
   var geoJsonLayer = L.geoJson(data, {
     pointToLayer: function( feature, latlng) {
@@ -154,7 +154,7 @@ $.getJSON("src/NHLarenas.geojson", function (data){
   var iconStyle = L.icon({
     iconUrl: "src/firstnationlogo.png",
     iconRetinaUrl: 'src/firstnationlogo.png',
-    iconSize: [5, 5]
+    iconSize: [12, 12]
   });
   var geoJsonLayer = L.geoJson(data, {
     pointToLayer: function( feature, latlng) {

@@ -150,7 +150,7 @@ $.getJSON("src/NHLarenas.geojson", function (data){
 });
 
 // First Nations (OpenCanada) (Python Computed --> Shp to Geojson)
-$.getJSON("src/NHLarenas.geojson", function (data){
+$.getJSON("src/firstnations.geojson", function (data){
   var iconStyle = L.icon({
     iconUrl: "src/firstnationlogo.png",
     iconRetinaUrl: 'src/firstnationlogo.png',

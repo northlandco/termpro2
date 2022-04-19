@@ -169,8 +169,8 @@ $.getJSON("src/firstnations.geojson", function (data){
 // NFL Stadiums (Python Computed --> CSV to GeoJson)
 $.getJSON("src/nflstadiums.geojson", function (data){
   var iconStyle = L.icon({
-    iconUrl: "src/nflstadiumslogo.png",
-    iconRetinaUrl: 'src/nflstadiumslogo.png',
+    iconUrl: "src/nflstadiumlogo.png",
+    iconRetinaUrl: 'src/nflstadiumlogo.png',
     iconSize: [12, 12]
   });
   var geoJsonLayer = L.geoJson(data, {

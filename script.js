@@ -183,6 +183,22 @@ $.getJSON("src/nflstadiums.geojson", function (data){
   controlLayers.addOverlay(geoJsonLayer, 'NFL Stadiums');
 });
 
+// Mining68 (Python Computed --> Shp to Geojson)
+$.getJSON("src/mining68.geojson", function (data){
+  var iconStyle = L.icon({
+    iconUrl: "src/nhlarenalogo.png",
+    iconRetinaUrl: 'src/mininglogo.png',
+    iconSize: [15, 15]
+  });
+  var geoJsonLayer = L.geoJson(data, {
+    pointToLayer: function( feature, latlng) {
+      var marker = L.marker(latlng,{icon: iconStyle});
+      marker.bindPopup(feature.properties.coordinates); 
+      return marker;
+    }
+  }); // insert ".addTo(map)" to display layer by default
+  controlLayers.addOverlay(geoJsonLayer, 'Mining Sites');
+});
 
 
 

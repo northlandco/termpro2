@@ -211,7 +211,7 @@ $.getJSON("src/mining68.geojson", function (data){
 // Different options for styling and interactivity
 
 //National Parks
-$.getJSON("src/NationalParks.geojson", function (data){
+$.getJSON("src/newnationalparks.geojson", function (data){
   var geoJsonLayer = L.geoJson(data, {
     style: function (feature) {
       return {
